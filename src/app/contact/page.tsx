@@ -13,16 +13,46 @@ export const metadata: Metadata = {
   description: "Get in touch for new projects and collaborations.",
 };
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams?: {
+    sent?: string;
+    error?: string;
+  };
+};
+
+export default function ContactPage({ searchParams }: ContactPageProps) {
+  const sent = searchParams?.sent;
+  const error = searchParams?.error;
+
   return (
     <div>
       <Section
         eyebrow="Contact"
-        title="Let’s build something beautiful"
-        description="Share a few details about your project and I’ll respond within 1–2 business days."
+        title="Let's build something beautiful"
+        description="Share a few details about your project and I'll respond within 1-2 business days."
       >
+        {sent === "1" && (
+          <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
+            Your message was sent successfully. I will get back to you soon.
+          </div>
+        )}
+        {error === "1" && (
+          <div className="mb-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+            Message failed to send. Please try again or email {site.email} directly.
+          </div>
+        )}
+
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <form className="card-surface space-y-6 p-6" aria-describedby="contact-note">
+          <form
+            className="card-surface space-y-6 p-6"
+            aria-describedby="contact-note"
+            method="POST"
+            action="/api/contact"
+          >
+            <div className="hidden" aria-hidden="true">
+              <Label htmlFor="website">Website</Label>
+              <Input id="website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="firstName">First name</Label>
