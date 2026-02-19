@@ -42,24 +42,30 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             method="POST"
             action="https://formsubmit.co/sylamariecumuyog@outlook.com"
           >
-            <input type="hidden" name="_subject" value="New Portfolio Inquiry" />
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry - Portfolio Website" />
             <input type="hidden" name="_next" value="https://portfolio-6zf9.onrender.com/contact?sent=1" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="Source" value="Portfolio Contact Page" />
+            <div className="hidden" aria-hidden="true">
+              <Label htmlFor="_honey">Leave this field empty</Label>
+              <Input id="_honey" name="_honey" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="firstName">First name</Label>
-                <Input id="firstName" name="firstName" placeholder="Jordan" required />
+                <Input id="firstName" name="First Name" placeholder="Jordan" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="lastName">Last name</Label>
-                <Input id="lastName" name="lastName" placeholder="Reed" required />
+                <Input id="lastName" name="Last Name" placeholder="Reed" required />
               </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
-                name="email"
+                name="Email"
                 type="email"
                 placeholder="jordan@company.com"
                 required
@@ -67,13 +73,13 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             </div>
             <div className="space-y-2">
               <Label htmlFor="company">Company</Label>
-              <Input id="company" name="company" placeholder="Studio North" />
+              <Input id="company" name="Company" placeholder="Studio North" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="message">Project details</Label>
               <Textarea
                 id="message"
-                name="message"
+                name="Project Details"
                 placeholder="Tell me about the product, timeline, and goals."
                 required
               />
