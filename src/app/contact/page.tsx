@@ -22,8 +22,6 @@ type ContactPageProps = {
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
   const sent = searchParams?.sent;
-  const error = searchParams?.error;
-
   return (
     <div>
       <Section
@@ -36,23 +34,17 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             Your message was sent successfully. I will get back to you soon.
           </div>
         )}
-        {error === "1" && (
-          <div className="mb-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
-            Message failed to send. Please try again or email {site.email} directly.
-          </div>
-        )}
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <form
             className="card-surface space-y-6 p-6"
             aria-describedby="contact-note"
             method="POST"
-            action="/api/contact"
+            action="https://formsubmit.co/sylamariecumuyog@outlook.com"
           >
-            <div className="hidden" aria-hidden="true">
-              <Label htmlFor="website">Website</Label>
-              <Input id="website" name="website" tabIndex={-1} autoComplete="off" />
-            </div>
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry" />
+            <input type="hidden" name="_next" value="https://portfolio-6zf9.onrender.com/contact?sent=1" />
+            <input type="hidden" name="_captcha" value="false" />
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="firstName">First name</Label>
@@ -87,7 +79,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               />
             </div>
             <p id="contact-note" className="text-sm text-muted">
-              Prefer email? Reach out at {site.email}.
+              Prefer email? Reach out at {site.email}. Form submissions are sent directly to this inbox.
             </p>
             <Button type="submit" size="lg">
               Send inquiry
