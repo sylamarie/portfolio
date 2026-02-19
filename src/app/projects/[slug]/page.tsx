@@ -67,7 +67,14 @@ export default function ProjectDetailPage({ params }: PageProps) {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className={[
+                    project.imageFit === "contain"
+                      ? "object-contain p-4"
+                      : "object-cover",
+                    project.imagePosition === "top"
+                      ? "object-top"
+                      : "object-center",
+                  ].join(" ")}
                   priority
                 />
               </div>

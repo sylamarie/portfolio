@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.46ein0sx1k.css" />
+    <link rel="stylesheet" href="app.nxkj75jnv5.css" />
+    <link rel="stylesheet" href="CSE325-visioncoders.7km72man60.styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    </head>
+
+<body><!--Blazor:{"type":"server","prerenderId":"3a75581c387b4882877d23ddf5943921","key":{"locationHash":"9AFC37BAA07C87CBDAEB90A81E0814F06126C0EE217479DFEB5EC76562A40CE0:20","formattedComponentKey":""},"sequence":0,"descriptor":"CfDJ8CeOWgOByitHr/9\u002BVyfNBpI6VrlkQuIqgOZGKhPYiuafmvhHWFBKlc\u002BH6KLKWYP5YqRDSunl6DM2WrOkAsrbWkKWgs\u002BMypeI6EOGEGDULJ8U5YP0xFLHYWNqE/1epfVi0PVngvXu4SrTvqIkcBlkQN/tz/bGKMBzBaBGbDbu6Dz8cGovJFD1h29b6fPvlr\u002B\u002Bn6bk2\u002BRw9mBkFDwLgsBk\u002B4Sqqk9UD/AemrWEjJnMAO8lWCsMPfMmD6ZCsMxEcHJMMg4iyiNswH3YScojsOs8etwOBmcyRWfGB1Gi0De\u002BjF/olDsUtw6MSiiYnUwGKq57SpC4sNmSUwXvfVL8r8imLmNUlnOlW/zZHq3BQxGmZq4bVQVw/sFZmJObpHr9jwcWJFr4HY1qX7Ahk\u002BgVyiPR\u002BVXBIVaDRSURW7EApJ1KJ7usH2zE/GqbFj2CholVSnXH3ZrUYGifNG9IfZCKy1Gus81Y32Nj\u002BdAau/EC7Lwmps1Bwn83P6jSmT3pyU\u002B\u002B\u002BUlAJpqajPGX63nMm7P8kjLhtqTPPE0Ud\u002BJYvqIASbCNx9W8"}--><div class="page" b-os2s2odbwn><div class="sidebar" b-os2s2odbwn><div class="top-row ps-3 navbar navbar-dark" b-w47fwrxhwr><div class="container-fluid" b-w47fwrxhwr><a href="/homepage" class="lm-logo-link" b-w47fwrxhwr><img src="img/lm_logo.svg" alt="LunchMate Logo" width="200" b-w47fwrxhwr></a></div></div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" b-w47fwrxhwr>
+
+<div class="nav-scrollable" onclick="document.querySelector(&#x27;.navbar-toggler&#x27;).click()" b-w47fwrxhwr><nav class="nav flex-column" b-w47fwrxhwr><div class="nav-item px-3" b-w47fwrxhwr><a href="/login" class="nav-link active" aria-current="page"><span class="bi bi-login" b-w47fwrxhwr></span> Login
+                    </a></div>
+                <div class="nav-item px-3" b-w47fwrxhwr><a href="/register" class="nav-link"><span class="bi bi-register" b-w47fwrxhwr></span> Register
+                    </a></div></nav></div></div>
+
+    <main b-os2s2odbwn><article class="content px-4" b-os2s2odbwn><div class="titleBar"><img class="titleIcon" src="img/loginIcon.svg" alt="Login icon">
+    <a>Login</a></div><form method="post" action="http://cse325-visioncoders-ytz0.onrender.com/auth/login-form?returnUrl=%2Fhomepage" class="loginForm"><label>Email</label>
+    <input name="Email">
+
+    <label>Password</label>
+    <input name="Password" type="password">
+
+    <button type="submit" class="btn-login">Login</button></form></article></main></div>
+
+<div id="blazor-error-ui" data-nosnippet b-os2s2odbwn>
+    An unhandled error has occurred.
+    <a href="." class="reload" b-os2s2odbwn>Reload</a>
+    <span class="dismiss" b-os2s2odbwn>🗙</span></div>
+            <!--Blazor:{"prerenderId":"3a75581c387b4882877d23ddf5943921"}-->
+
+    <script type="module" src="Components/Layout/ReconnectModal.w97mql0d9w.razor.js" b-b007tbf6xx></script>
+
+<dialog id="components-reconnect-modal" data-nosnippet b-b007tbf6xx><div class="components-reconnect-container" b-b007tbf6xx><div class="components-rejoining-animation" aria-hidden="true" b-b007tbf6xx><div b-b007tbf6xx></div>
+            <div b-b007tbf6xx></div></div>
+        <p class="components-reconnect-first-attempt-visible" b-b007tbf6xx>
+            Rejoining the server...
+        </p>
+        <p class="components-reconnect-repeated-attempt-visible" b-b007tbf6xx>
+            Rejoin failed... trying again in <span id="components-seconds-to-next-attempt" b-b007tbf6xx></span> seconds.
+        </p>
+        <p class="components-reconnect-failed-visible" b-b007tbf6xx>
+            Failed to rejoin.<br b-b007tbf6xx>Please retry or reload the page.
+        </p>
+        <button id="components-reconnect-button" class="components-reconnect-failed-visible" b-b007tbf6xx>
+            Retry
+        </button>
+        <p class="components-pause-visible" b-b007tbf6xx>
+            The session has been paused by the server.
+        </p>
+        <button id="components-resume-button" class="components-pause-visible" b-b007tbf6xx>
+            Resume
+        </button>
+        <p class="components-resume-failed-visible" b-b007tbf6xx>
+            Failed to resume the session.<br b-b007tbf6xx>Please reload the page.
+        </p></div></dialog>
+
+    <script src="_framework/blazor.web.js"></script></body></html><!--Blazor-Server-Component-State:CfDJ8CeOWgOByitHr/9+VyfNBpIe13pCs4dDK9TjE54cGSXvRKBCZ7KYeCXBueax4omOPB+zRvM3vgU/KuriNUms/BOxyewac1g6ES6FkoVdAJ/xC8bkZKEzGTjhLBrC6tZ+Q456siyfTiwXcxKkG66mA6FrBEXgm/IKf7ugBYrdHZVVSl8UuTZ6ibnoZF/u2pDHDV1VZHPvbXRKBu5zJgDATnIO844MDZTPWmEDREMNCXSCO72l/V95sQaa82HscBNXe4ppnBb6ZXXLVX22XkaCq3l3CDrVpzsoMCUXGJcSXe8XF4OrQMl11w15/I/sIN9jyA1RzDBC9vQuWbAyLHeFZQF6bgYN498VY+5hbhPIz9U3W2pe2HCvzONvY02+5Q/4eepDaTo9XrWtoTmMpYIMZOdN2tH6zqLSWHwfiCoX5cXq36gSl+qgEGZ7cuFDwW+4h68v+Raa5tlg1u8h0CaeKf6UkZHq9l7f5w1ZDdFIlI/ZXy55kflxEo6VVeT08haUwSYjPcusHqBkKo0IuQtswz54zrafrKc6mZXcgiARcj9xhRL5QW5dlLJs0AWfOdzfgup60dUsPnV38u3Dx081UHNPARwQ118Gpb9hdKI/K9efkGL7F5N8T/9ZNRfUNGjqyTGwyF72QetTPEV33XTMg++gZk53C9dXpryf8Abnw4kzKQ93jcGN5Y7vuySUSROM3NzGwPBEt4w9qAeRWKBK0b4nWkL/Y6rx0GD3JeeG5M3EKOP1CwR9UvCESrB0mfG2sHddwDZlqPW1GfAbeaDM43kJUm43DtbmsVSoSNSYkCGXYbPxFcFyRZcmAIQ1YMVtZ8Vcbqlq01Smd0Cx2iSBghYzfdAv0JyUj93LNzK/bHBhbUePQ8ziX5O/UTadd3343K0fRpTyxRdoUgF1XX3O7gTAWa8aB9mJFsTk8COS7FSRFhLaFnqsbUrHh2nfWllX7uwjlEc2Ux1PXH3l4rZsdu3PGfUeRAVBqdWy0HhN8b54BysSTbRc0/QsFFOlgoFweX+tcFdW77Oif6hndzlH/nTqtwB6eVRXeXFCSJEKFm1GwopCscqe+wMo0W/QaDvxq1wqzzAzfoSnG4w/jUcQtthiur/YKt+gECpVjDJTbMxHJMW0x+RvoaSl5JrLpO3ViQ==-->
