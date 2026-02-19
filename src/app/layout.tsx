@@ -24,7 +24,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://sylamariecumuyog-portfolio.onrender.com"),
   title: {
     default: "Syla Marie Garzon Cumuyog — Web Developer",
     template: "%s — Syla Marie Garzon Cumuyog",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Premium personal portfolio showcasing selected projects, design systems, and product thinking.",
     type: "website",
-    url: "https://example.com",
+    url: "https://sylamariecumuyog-portfolio.onrender.com",
   },
   twitter: {
     card: "summary_large_image",

@@ -43,7 +43,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             action="https://formsubmit.co/sylamariecumuyog@outlook.com"
           >
             <input type="hidden" name="_subject" value="New Portfolio Inquiry - Portfolio Website" />
-            <input type="hidden" name="_next" value="https://portfolio-6zf9.onrender.com/contact?sent=1" />
+            <input type="hidden" name="_next" value="https://sylamariecumuyog-portfolio.onrender.com/contact?sent=1" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="Source" value="Portfolio Contact Page" />
