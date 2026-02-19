@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/reveal";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "A curated selection of product, design system, and engineering work.",
+    "Software and web development projects, including full-stack, backend API, and e-commerce implementations.",
 };
 
 export default function ProjectsPage() {
@@ -15,33 +15,33 @@ export default function ProjectsPage() {
     <div>
       <Section
         eyebrow="Projects"
-        title="Selected work"
-        description="Filter by focus area to explore product outcomes, system thinking, and shipping velocity."
+        title="Selected development work"
+        description="Projects from professional and academic experience, covering frontend, backend, APIs, and deployment."
       >
         <ProjectsGrid />
       </Section>
 
       <Section
         eyebrow="Process"
-        title="From concept to delivery"
-        description="Every project follows a clear structure to align stakeholders and ship with confidence."
+        title="How projects are delivered"
+        description="A consistent engineering workflow helps me deliver reliable and maintainable results."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
               step: "01",
-              title: "Discover",
-              body: "Align on goals, constraints, and success metrics with rapid workshops.",
+              title: "Architecture",
+              body: "Define data models, API structure, and user flows based on requirements.",
             },
             {
               step: "02",
-              title: "Design",
-              body: "Prototype flows, iterate in Figma, and establish scalable UI patterns.",
+              title: "Implementation",
+              body: "Build responsive frontend interfaces and backend services with clean code practices.",
             },
             {
               step: "03",
-              title: "Deliver",
-              body: "Ship production-ready UI with performance, QA, and accessibility baked in.",
+              title: "Testing & Deployment",
+              body: "Validate APIs with Postman, document with Swagger, and deploy using Render.",
             },
           ].map((item, index) => (
             <Reveal key={item.step} delay={index * 0.08}>

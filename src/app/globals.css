@@ -1,17 +1,17 @@
 ﻿@import "tailwindcss";
 
 :root {
-  --color-background: #f5f7fb;
-  --color-foreground: #0b1424;
-  --color-muted: #5e6b86;
-  --color-subtle: #9aa7bf;
-  --color-border: #e1e7f2;
-  --color-accent: #2a6efc;
-  --color-accent-2: #7c5dff;
-  --color-accent-3: #6ee7ff;
-  --radius-base: 14px;
+  --color-background: #f3f5f8;
+  --color-foreground: #13243f;
+  --color-muted: #50627e;
+  --color-subtle: #7688a3;
+  --color-border: #d7e0ec;
+  --color-accent: #1f4f95;
+  --color-accent-2: #2f6ac0;
+  --color-accent-3: #8fb0de;
+  --radius-base: 12px;
   --radius-pill: 999px;
-  --shadow-color: 219 56% 17%;
+  --shadow-color: 214 40% 18%;
 }
 
 @theme inline {
@@ -33,24 +33,12 @@
     color: var(--color-foreground);
     background-color: var(--color-background);
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "ss01" 1, "ss02" 1, "cv11" 1;
+    font-feature-settings: "ss01" 1;
     background-image:
-      radial-gradient(1200px 600px at 15% 10%, rgba(79, 129, 255, 0.18), transparent 60%),
-      radial-gradient(800px 500px at 85% 0%, rgba(143, 95, 255, 0.16), transparent 55%),
-      linear-gradient(180deg, rgba(245, 247, 251, 0.95), rgba(245, 247, 251, 0.98));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.9)),
+      radial-gradient(circle at 92% -10%, rgba(47, 106, 192, 0.15), transparent 45%),
+      radial-gradient(circle at 10% 0%, rgba(31, 79, 149, 0.12), transparent 35%);
     background-repeat: no-repeat;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.12;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.35'/></svg>");
-    background-size: 140px 140px;
-    z-index: 0;
   }
 
   main {
@@ -63,50 +51,48 @@
   }
 
   ::selection {
-    background: rgba(122, 108, 255, 0.25);
+    background: rgba(47, 106, 192, 0.22);
   }
 }
 
 @layer utilities {
   .glass-panel {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(225, 231, 242, 0.7);
-    border-radius: 18px;
-    box-shadow: 0 20px 60px -50px rgba(21, 34, 58, 0.5), 0 1px 0 rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(215, 224, 236, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 22px 55px -45px rgba(17, 35, 60, 0.42);
   }
 
   .text-display {
-    font-size: clamp(2.6rem, 5vw, 4.8rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.25rem, 4.4vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     font-weight: 600;
   }
 
   .text-hero {
-    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
-    line-height: 1.6;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.65;
   }
 
   .text-title {
-    font-size: clamp(1.4rem, 2vw, 2rem);
+    font-size: clamp(1.3rem, 2vw, 1.85rem);
     line-height: 1.25;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
 
   .text-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
   }
 
   .card-surface {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(225, 231, 242, 0.8);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(215, 224, 236, 0.9);
     border-radius: var(--radius-base);
-    box-shadow: 0 20px 60px -50px rgba(21, 34, 58, 0.45), 0 1px 0 rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 45px -42px rgba(17, 35, 60, 0.5);
   }
 
   .focus-ring {
@@ -115,8 +101,8 @@
   }
 
   .focus-ring:focus-visible {
-    outline-color: rgba(42, 110, 252, 0.65);
-    box-shadow: 0 0 0 4px rgba(42, 110, 252, 0.15);
+    outline-color: rgba(31, 79, 149, 0.72);
+    box-shadow: 0 0 0 4px rgba(31, 79, 149, 0.17);
   }
 }
 

@@ -5,10 +5,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { site, skills, tools, experience, education, certificates } from "@/data/site";
 import { CertificatesGallery } from "@/components/certificates-gallery";
+import { EducationGrid } from "@/components/education-grid";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Background, skills, and experience timeline.",
+  description: "Resume background, technical skills, and experience timeline.",
 };
 
 export default function AboutPage() {
@@ -16,20 +17,21 @@ export default function AboutPage() {
     <div>
       <Section
         eyebrow="About"
-        title="Web development focus"
-        description="I focus on building clean, responsive interfaces and reliable web experiences that help users complete tasks quickly and confidently."
+        title="Software development background"
+        description="My focus is practical software engineering: clean architecture, reliable APIs, and responsive interfaces that solve real user needs."
       >
         <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <div className="card-surface p-6">
               <p className="text-sm text-muted">
-                {site.name} is a web developer focused on building clean,
-                high-performing interfaces. I care about usability, accessibility,
-                and the details that make web experiences feel reliable.
+                {site.name} is a software developer with hands-on experience in
+                frontend and backend development. My current focus is building
+                full-stack applications with React, Node.js, and Express.
               </p>
               <p className="mt-4 text-sm text-muted">
-                My experience includes Shopify e-commerce development, responsive
-                UI implementation, and structured communication in remote teams.
+                I also work on e-commerce development using Shopify, API
+                documentation with Swagger, and deployment workflows using
+                Render and GitHub.
               </p>
             </div>
           </Reveal>
@@ -52,8 +54,8 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Skills"
-        title="What I bring"
-        description="A mix of strategic thinking and hands-on execution across product design and frontend engineering."
+        title="Technical strengths"
+        description="Core technical capabilities from my resume and recent academic project work."
       >
         <div className="flex flex-wrap gap-3">
           {skills.map((skill) => (
@@ -66,8 +68,8 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Tools"
-        title="Daily stack"
-        description="Design and development tools used to deliver polished, production-ready experiences."
+        title="Development stack"
+        description="Primary tools and technologies used in my software and web development projects."
       >
         <div className="grid gap-4 md:grid-cols-4">
           {tools.map((tool) => (
@@ -81,36 +83,23 @@ export default function AboutPage() {
       <Section
         eyebrow="Education"
         title="Academic background"
-        description="Degree programs in software development at BYU–Idaho."
+        description="Software development degree programs completed and in progress at BYU-Idaho."
       >
-        <div className="grid gap-6 md:grid-cols-2">
-          {education.map((item) => (
-            <div key={item.degree} className="card-surface p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-                {item.status}
-              </p>
-              <h3 className="mt-2 text-lg font-semibold text-foreground">
-                {item.degree}
-              </h3>
-              <p className="mt-2 text-sm text-muted">{item.school}</p>
-              <p className="text-sm text-muted">{item.location}</p>
-            </div>
-          ))}
-        </div>
+        <EducationGrid education={education} />
       </Section>
 
       <Section
         eyebrow="Certificates"
-        title="Professional certificates"
-        description="View each certificate inline. No downloads required."
+        title="Completed certificates"
+        description="Software and web development certificates from BYU-Idaho."
       >
         <CertificatesGallery certificates={certificates} />
       </Section>
 
       <Section
         eyebrow="Experience"
-        title="Timeline"
-        description="A concise view of recent roles and impact areas."
+        title="Professional and leadership experience"
+        description="Recent roles focused on development, communication, and structured execution."
       >
         <div className="space-y-6">
           {experience.map((item, index) => (

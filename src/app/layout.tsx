@@ -1,17 +1,17 @@
 ﻿import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Newsreader, Sora } from "next/font/google";
+import { JetBrains_Mono, Lora, Manrope } from "next/font/google";
 import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const sans = Sora({
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const serif = Newsreader({
+const serif = Lora({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
@@ -26,30 +26,32 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sylamariecumuyog-portfolio.onrender.com"),
   title: {
-    default: "Syla Marie Garzon Cumuyog — Web Developer",
-    template: "%s — Syla Marie Garzon Cumuyog",
+    default: "Syla Marie Garzon Cumuyog - Software Developer",
+    template: "%s - Syla Marie Garzon Cumuyog",
   },
   description:
-    "Premium personal portfolio showcasing selected projects, design systems, and product thinking.",
+    "Portfolio of Syla Marie Garzon Cumuyog, featuring software development, web engineering, e-commerce work, and academic full-stack projects.",
   keywords: [
-    "Product designer",
-    "Frontend engineer",
-    "UI UX",
+    "Software developer",
+    "Web developer",
+    "Full-stack",
+    "React",
+    "Node.js",
+    "Shopify",
     "Portfolio",
-    "Next.js",
   ],
   openGraph: {
-    title: "Syla Marie Garzon Cumuyog — Web Developer",
+    title: "Syla Marie Garzon Cumuyog - Software Developer",
     description:
-      "Premium personal portfolio showcasing selected projects, design systems, and product thinking.",
+      "Software development portfolio featuring full-stack, backend API, and e-commerce project experience.",
     type: "website",
     url: "https://sylamariecumuyog-portfolio.onrender.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Syla Marie Garzon Cumuyog — Web Developer",
+    title: "Syla Marie Garzon Cumuyog - Software Developer",
     description:
-      "Premium personal portfolio showcasing selected projects, design systems, and product thinking.",
+      "Software development portfolio featuring full-stack, backend API, and e-commerce project experience.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f5f7fb",
+  themeColor: "#f3f5f8",
 };
 
 export default function RootLayout({

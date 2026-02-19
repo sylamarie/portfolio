@@ -1,86 +1,98 @@
 ﻿export const site = {
   name: "Syla Marie Garzon Cumuyog",
-  role: "Web Developer / Software Developer",
+  role: "Software Developer / Web Developer",
   location: "Philippines",
   email: "sylamariecumuyog@outlook.com",
   github: "https://github.com/sylamarie",
   linkedin: "https://www.linkedin.com/in/syla-marie-cumuyog-b11a62284/",
   initials: "SM",
   shortPitch:
-    "I build clean, responsive web experiences with a focus on reliability, usability, and modern best practices.",
-  availability: "Open to remote roles and freelance opportunities.",
+    "I build practical web applications with React, Node.js, Express, and modern frontend tools, with focus on reliability and clean user experience.",
+  availability: "Open to remote junior software/web developer roles and freelance work.",
 };
 
 export const skills = [
-  "HTML, CSS, JavaScript",
-  "Responsive web design",
-  "Shopify theme customization",
-  "MongoDB database integration",
-  "Web services & APIs",
-  "Problem solving",
-  "Documentation",
+  "JavaScript (ES6+), Python, C#, SQL",
+  "React.js and responsive web design",
+  "Node.js, Express.js, RESTful APIs",
+  "Swagger (OpenAPI) API documentation",
+  "MongoDB, MySQL, PostgreSQL",
+  "Object-oriented programming and data structures",
+  "Software testing and QA fundamentals",
+  "Shopify theme and e-commerce customization",
 ];
 
 export const tools = [
+  "React",
+  "Node.js",
+  "Express.js",
   "Next.js",
   "TypeScript",
-  "React",
   "Tailwind CSS",
   "MongoDB",
+  "PostgreSQL",
+  "MySQL",
+  "Swagger (OpenAPI)",
+  "Postman",
   "Shopify",
   "Git",
-  "Figma",
-  "Vercel",
+  "GitHub",
+  "Render",
+  ".NET Fundamentals",
 ];
 
 export const experience = [
   {
-    period: "Sep 2024 — Sep 2025",
+    period: "Sep 2024 - Sep 2025",
     title: "E-commerce Web Developer",
     company: "Freelance",
     summary:
-      "Designed and developed a Shopify e-commerce site, customized layout, configured products, payments, and shipping, and ensured a responsive, user-friendly experience.",
+      "Designed and developed an e-commerce website using Shopify, customized themes, managed product listings, configured payment workflows, and optimized responsive navigation and performance.",
   },
   {
-    period: "Nov 2021 — Apr 2023",
+    period: "Nov 2021 - Apr 2023",
     title: "Full-Time Volunteer Representative",
     company: "Organization Volunteer Service",
     summary:
-      "Trained new volunteers in prospecting, networking, and leadership; engaged with 100+ visitors daily; and supported registration follow-ups with consistent communication.",
+      "Communicated daily with 50+ individuals, mentored new volunteers, and managed structured follow-up and reporting processes that strengthened teamwork and leadership.",
   },
 ];
 
 export const education = [
   {
-    degree: "Associate Degree in Software Development",
-    school: "Brigham Young University–Idaho",
+    degree: "Associate of Applied Science in Software Development",
+    school: "Brigham Young University - Idaho",
     location: "Rexburg, Idaho",
     status: "Completed",
+    diplomaPdf:
+      "/certificates/associate-of-applied-science-in-software-development.pdf",
+    diplomaImage:
+      "/certificates/associate-of-applied-science-in-software-development-page-2.png",
   },
   {
-    degree: "Bachelor’s Degree in Software Development",
-    school: "Brigham Young University–Idaho",
+    degree: "Bachelor of Science in Software Development",
+    school: "Brigham Young University - Idaho",
     location: "Rexburg, Idaho",
-    status: "In progress (not delivered yet)",
+    status: "Completed (diploma PDF not released yet)",
   },
 ];
 
 export const certificates = [
   {
     title: "Web and Computer Programming Certificate",
-    issuer: "Brigham Young University–Idaho",
+    issuer: "Brigham Young University-Idaho",
     pdf: "/certificates/web-computer-programming.pdf",
     image: "/certificates/web-computer-programming.png",
   },
   {
     title: "Web Development Certificate",
-    issuer: "Brigham Young University–Idaho",
+    issuer: "Brigham Young University-Idaho",
     pdf: "/certificates/web-development.pdf",
     image: "/certificates/web-development.png",
   },
   {
     title: "Software Development Certificate",
-    issuer: "Brigham Young University–Idaho",
+    issuer: "Brigham Young University-Idaho",
     pdf: "/certificates/software-development.pdf",
     image: "/certificates/software-development.png",
   },

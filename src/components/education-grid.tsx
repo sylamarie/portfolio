@@ -1,29 +1,25 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-import { cn } from "@/lib/utils";
-
-type Certificate = {
-  title: string;
-  issuer: string;
-  image: string;
-  pdf?: string;
+type EducationItem = {
+  degree: string;
+  school: string;
+  location: string;
+  status: string;
+  diplomaImage?: string;
 };
 
-type CertificatesGalleryProps = {
-  certificates: Certificate[];
-  className?: string;
+type EducationGridProps = {
+  education: EducationItem[];
 };
 
-export function CertificatesGallery({ certificates, className }: CertificatesGalleryProps) {
+export function EducationGrid({ education }: EducationGridProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
-
-  const active = activeIndex !== null ? certificates[activeIndex] : null;
+  const active = activeIndex !== null ? education[activeIndex] : null;
 
   useEffect(() => {
     if (active) {
@@ -42,6 +38,7 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
         setActiveIndex(null);
       }
     }
+
     if (active) {
       window.addEventListener("keydown", handleKeyDown);
       return () => window.removeEventListener("keydown", handleKeyDown);
@@ -50,41 +47,37 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
   }, [active]);
 
   return (
-    <div className={cn("grid gap-8 lg:grid-cols-3", className)}>
-      {certificates.map((cert, index) => (
-        <button
-          key={cert.title}
-          type="button"
-          onClick={() => setActiveIndex(index)}
-          className="card-surface group text-left focus-ring"
-        >
-          <div className="p-6">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  {cert.title}
-                </h3>
-                <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
-              </div>
-              <span className="text-xs uppercase tracking-[0.2em] text-subtle">
-                Certificate
-              </span>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-[16px] border border-border bg-white shadow-soft">
-            <Image
-              src={cert.image}
-              alt={`${cert.title} certificate`}
-              width={900}
-              height={1200}
-              className="h-auto w-full object-contain transition duration-300 group-hover:scale-[1.01]"
-            />
-          </div>
-        </button>
+    <div className="grid gap-6 md:grid-cols-2">
+      {education.map((item, index) => (
+        <div key={item.degree} className="card-surface p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-subtle">
+            {item.status}
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-foreground">
+            {item.degree}
+          </h3>
+          <p className="mt-2 text-sm text-muted">{item.school}</p>
+          <p className="text-sm text-muted">{item.location}</p>
+          {item.diplomaImage ? (
+            <button
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className="mt-5 block w-full overflow-hidden rounded-[14px] border border-border bg-white text-left focus-ring"
+            >
+              <Image
+                src={item.diplomaImage}
+                alt={`${item.degree} diploma`}
+                width={900}
+                height={1200}
+                className="h-auto w-full object-contain transition duration-300 hover:scale-[1.01]"
+              />
+            </button>
+          ) : null}
+        </div>
       ))}
 
       <AnimatePresence>
-        {active ? (
+        {active?.diplomaImage ? (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center px-4"
             initial={{ opacity: 0 }}
@@ -95,7 +88,7 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
               type="button"
               onClick={() => setActiveIndex(null)}
               className="absolute inset-0 bg-black/50 backdrop-blur-md"
-              aria-label="Close certificate"
+              aria-label="Close diploma preview"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -110,10 +103,10 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
               <div className="flex items-center justify-between gap-4 border-b border-border px-6 py-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-                    Certificate
+                    Education
                   </p>
                   <p className="mt-1 text-base font-semibold text-foreground">
-                    {active.title}
+                    {active.degree}
                   </p>
                 </div>
                 <button
@@ -125,21 +118,9 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
                 </button>
               </div>
               <div className="max-h-[80vh] overflow-auto bg-white p-4">
-                {active.pdf ? (
-                  <div className="mb-4">
-                    <Link
-                      href={active.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex rounded-full border border-border bg-white px-4 py-2 text-xs font-medium text-foreground hover:bg-slate-50"
-                    >
-                      View PDF
-                    </Link>
-                  </div>
-                ) : null}
                 <Image
-                  src={active.image}
-                  alt={`${active.title} certificate`}
+                  src={active.diplomaImage}
+                  alt={`${active.degree} diploma`}
                   width={1200}
                   height={1600}
                   className="h-auto w-full object-contain"

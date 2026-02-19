@@ -89,7 +89,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-subtle">Scope</span>
-                  <span className="text-foreground">Product, UI, Motion</span>
+                  <span className="text-foreground">Frontend, Backend, Deployment</span>
                 </div>
                 {project.link && (
                   <Button asChild variant="secondary" size="sm">
@@ -110,8 +110,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
       <Section
         eyebrow="Highlights"
-        title="Outcomes"
-        description="Key product wins and measurable improvements delivered with this engagement."
+        title="Implementation highlights"
+        description="Key engineering tasks completed across development, integration, testing, and deployment."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {project.highlights.map((item, index) => (
@@ -127,7 +127,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
       <Section
         eyebrow="Next"
         title="More projects"
-        description="Explore additional work across product, design systems, and AI tools."
+        description="Explore additional software, web, e-commerce, and backend API projects."
       >
         <Button asChild variant="outline">
           <Link href="/projects">Back to projects</Link>

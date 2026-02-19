@@ -14,10 +14,7 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative overflow-hidden pb-16 pt-24">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-[-10%] top-[-20%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(42,110,252,0.25),transparent_70%)] blur-3xl" />
-          <div className="absolute right-[-10%] top-[10%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(124,93,255,0.25),transparent_70%)] blur-3xl" />
-        </div>
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(39,80,153,0.12),transparent_40%)]" />
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 md:grid-cols-[1.15fr_0.85fr] md:items-center md:px-8">
           <div className="space-y-6">
             <Reveal>
@@ -27,7 +24,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="text-display font-serif text-foreground">
-                Building reliable, user-friendly web experiences.
+                Building reliable software and practical web solutions.
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
@@ -41,7 +38,7 @@ export default function HomePage() {
                   </Button>
                 </Magnetic>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Start a project</Link>
+                  <Link href="/contact">Contact me</Link>
                 </Button>
               </div>
             </Reveal>
@@ -53,38 +50,37 @@ export default function HomePage() {
             </Reveal>
           </div>
           <Reveal delay={0.2}>
-            <div className="glass-panel relative overflow-hidden p-6">
-              <div className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-accent/30 to-accent2/30 blur-3xl" />
-              <div className="relative space-y-6">
+            <div className="glass-panel p-6">
+              <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-                      Signature
+                      Profile summary
                     </p>
                     <p className="mt-2 text-2xl font-semibold text-foreground">
                       {site.name}
                     </p>
                   </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent2 text-lg font-semibold text-white shadow">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
                     {site.initials}
                   </div>
                 </div>
-                <div className="space-y-3 text-sm text-muted">
-                  <p>Focused on responsive web experiences and e-commerce.</p>
-                  <p>Comfortable collaborating remotely and following structured workflows.</p>
+                <div className="space-y-2 text-sm text-muted">
+                  <p>Experienced in React, Node.js, Express, REST APIs, and database integration.</p>
+                  <p>Background includes Shopify e-commerce development and academic full-stack projects.</p>
                 </div>
-                <div className="grid gap-3 rounded-[12px] border border-border bg-white/70 p-4 text-sm">
+                <div className="grid gap-3 rounded-[12px] border border-border bg-white p-4 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-subtle">Focus areas</span>
-                    <span className="text-foreground">E-commerce, web apps</span>
+                    <span className="text-subtle">Core stack</span>
+                    <span className="text-foreground">React, Node.js, Express</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-subtle">Specialties</span>
-                    <span className="text-foreground">Responsive UI, Shopify</span>
+                    <span className="text-subtle">Databases</span>
+                    <span className="text-foreground">MongoDB, PostgreSQL, MySQL</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-subtle">Strengths</span>
-                    <span className="text-foreground">Detail-oriented</span>
+                    <span className="text-subtle">Deployment</span>
+                    <span className="text-foreground">Render, GitHub</span>
                   </div>
                 </div>
               </div>
@@ -95,8 +91,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="Featured"
-        title="Projects with measurable impact"
-        description="A snapshot of product work spanning web apps, mobile, and design systems."
+        title="Resume-aligned projects"
+        description="Selected projects covering web application development, backend APIs, and e-commerce implementation."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {featured.map((project, index) => (
@@ -113,23 +109,23 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Approach"
-        title="Designing with intent"
-        description="I collaborate across product, engineering, and brand teams to craft experiences that feel cohesive and perform under pressure."
+        eyebrow="Work style"
+        title="How I build"
+        description="I follow a practical engineering process focused on clear architecture, tested APIs, and reliable deployments."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              title: "Strategic foundations",
-              body: "Aligning stakeholders early with lightweight discovery, journeys, and success metrics.",
+              title: "Plan",
+              body: "Define requirements, data models, and technical scope before implementation.",
             },
             {
-              title: "Systems over screens",
-              body: "Building reusable patterns, tokens, and documentation to scale design and engineering.",
+              title: "Build",
+              body: "Develop responsive UIs and backend services with structured, maintainable code.",
             },
             {
-              title: "Polish that ships",
-              body: "Crafting micro-interactions, accessibility, and performance details before launch.",
+              title: "Validate",
+              body: "Test endpoints with Postman, document APIs with Swagger, and deploy on Render.",
             },
           ].map((item) => (
             <div key={item.title} className="card-surface p-6">
@@ -144,17 +140,17 @@ export default function HomePage() {
 
       <Section
         eyebrow="Contact"
-        title="Let’s build something premium"
-        description="If you’re looking for a design-forward engineer, I’d love to hear about your product goals."
+        title="Open to new opportunities"
+        description="I am currently open to junior software developer roles, web development projects, and remote collaboration."
       >
         <div className="flex flex-wrap items-center gap-4">
           <Magnetic>
             <Button asChild size="lg">
-              <Link href="/contact">Book a call</Link>
+              <Link href="/contact">Send an inquiry</Link>
             </Button>
           </Magnetic>
           <Button asChild variant="outline" size="lg">
-            <Link href="/about">More about me</Link>
+            <Link href="/about">View full background</Link>
           </Button>
         </div>
       </Section>

@@ -27,8 +27,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
     <div>
       <Section
         eyebrow="Contact"
-        title="Let's build something beautiful"
-        description="Share a few details about your project and I'll respond within 1-2 business days."
+        title="Let's discuss your project"
+        description="Share your requirements and I will respond within 1-2 business days."
       >
         {sent === "1" && (
           <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
