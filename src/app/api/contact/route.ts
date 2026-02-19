@@ -7,15 +7,22 @@ function clean(value: FormDataEntryValue | null, maxLength = 5000) {
   return value.trim().slice(0, maxLength);
 }
 
-export async function POST(request: Request) {
-  const baseUrl = new URL(request.url).origin;
+function redirectTo(path: string) {
+  return new NextResponse(null, {
+    status: 303,
+    headers: {
+      Location: path,
+    },
+  });
+}
 
+export async function POST(request: Request) {
   try {
     const formData = await request.formData();
 
     const honeypot = clean(formData.get("website"), 100);
     if (honeypot) {
-      return NextResponse.redirect(new URL("/contact?sent=1", baseUrl), 303);
+      return redirectTo("/contact?sent=1");
     }
 
     const firstName = clean(formData.get("firstName"), 100);
@@ -25,7 +32,7 @@ export async function POST(request: Request) {
     const message = clean(formData.get("message"), 5000);
 
     if (!firstName || !lastName || !email || !message) {
-      return NextResponse.redirect(new URL("/contact?error=1", baseUrl), 303);
+      return redirectTo("/contact?error=1");
     }
 
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -33,7 +40,7 @@ export async function POST(request: Request) {
     const fromEmail = process.env.CONTACT_FROM_EMAIL;
 
     if (!resendApiKey || !toEmail || !fromEmail) {
-      return NextResponse.redirect(new URL("/contact?error=1", baseUrl), 303);
+      return redirectTo("/contact?error=1");
     }
 
     const subject = `New portfolio inquiry from ${firstName} ${lastName}`;
@@ -63,11 +70,11 @@ export async function POST(request: Request) {
     });
 
     if (!sendResponse.ok) {
-      return NextResponse.redirect(new URL("/contact?error=1", baseUrl), 303);
+      return redirectTo("/contact?error=1");
     }
 
-    return NextResponse.redirect(new URL("/contact?sent=1", baseUrl), 303);
+    return redirectTo("/contact?sent=1");
   } catch {
-    return NextResponse.redirect(new URL("/contact?error=1", baseUrl), 303);
+    return redirectTo("/contact?error=1");
   }
 }
