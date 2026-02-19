@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { FormSubmitPhTime } from "@/components/form-submit-ph-time";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -42,24 +43,19 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             method="POST"
             action="https://formsubmit.co/sylamariecumuyog@outlook.com"
           >
-            <input type="hidden" name="_subject" value="New Portfolio Inquiry - Portfolio Website" />
+            <input type="hidden" name="_subject" value="New Client Inquiry - Syla Cumuyog Portfolio" />
             <input type="hidden" name="_next" value="https://sylamariecumuyog-portfolio.onrender.com/contact?sent=1" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="Source" value="Portfolio Contact Page" />
+            <FormSubmitPhTime />
             <div className="hidden" aria-hidden="true">
               <Label htmlFor="_honey">Leave this field empty</Label>
               <Input id="_honey" name="_honey" tabIndex={-1} autoComplete="off" />
             </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First name</Label>
-                <Input id="firstName" name="First Name" placeholder="Jordan" required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last name</Label>
-                <Input id="lastName" name="Last Name" placeholder="Reed" required />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="fullName">Full name</Label>
+              <Input id="fullName" name="Name" placeholder="Jordan Reed" required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
