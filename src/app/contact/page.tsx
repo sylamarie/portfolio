@@ -24,6 +24,7 @@ type ContactPageProps = {
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
   const sent = searchParams?.sent;
+  const error = searchParams?.error;
 
   return (
     <div>
@@ -37,6 +38,11 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             Your message was sent successfully. I will get back to you soon.
           </div>
         )}
+        {error === "1" && (
+          <div className="mb-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+            Your message could not be sent. Please try again or email me directly.
+          </div>
+        )}
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal variant="scale">
@@ -47,8 +53,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               action="https://formsubmit.co/sylamariecumuyog@outlook.com"
             >
               <input type="hidden" name="_subject" value="New Client Inquiry - Syla Cumuyog Portfolio" />
-              <input type="hidden" name="_next" value="https://sylamariecumuyog-portfolio.onrender.com/contact?sent=1" />
-              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="/contact?sent=1" />
+              <input type="hidden" name="_error" value="/contact?error=1" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="Source" value="Portfolio Contact Page" />
               <FormSubmitPhTime />
@@ -58,13 +64,13 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="fullName">Full name</Label>
-                <Input id="fullName" name="Name" placeholder="Jordan Reed" required />
+                <Input id="fullName" name="name" placeholder="Jordan Reed" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                  name="Email"
+                  name="email"
                   type="email"
                   placeholder="jordan@company.com"
                   required
@@ -72,13 +78,13 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="company">Company</Label>
-                <Input id="company" name="Company" placeholder="Studio North" />
+                <Input id="company" name="company" placeholder="Studio North" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Project details</Label>
                 <Textarea
                   id="message"
-                  name="Project Details"
+                  name="message"
                   placeholder="Tell me about your product, timeline, and technical goals."
                   required
                 />
