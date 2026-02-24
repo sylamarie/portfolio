@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { PageTransition } from "@/components/motion/page-transition";
+import { CinematicBackground } from "@/components/motion/cinematic-background";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f3f5f8",
+  themeColor: "#f5f7fb",
 };
 
 export default function RootLayout({
@@ -70,10 +72,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${sans.variable} ${serif.variable} ${mono.variable} min-h-screen bg-background font-sans text-foreground`}
       >
+        <CinematicBackground />
         <a
           href="#content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus-ring rounded-full bg-white px-4 py-2 text-sm shadow"
@@ -82,7 +85,7 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         <main id="content" className="min-h-screen">
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <SiteFooter />
       </body>

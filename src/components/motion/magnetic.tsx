@@ -11,12 +11,12 @@ type MagneticProps = {
   strength?: number;
 };
 
-export function Magnetic({ children, className, strength = 18 }: MagneticProps) {
+export function Magnetic({ children, className, strength = 10 }: MagneticProps) {
   const shouldReduceMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 150, damping: 15 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15 });
+  const springX = useSpring(x, { stiffness: 220, damping: 28, mass: 0.4 });
+  const springY = useSpring(y, { stiffness: 220, damping: 28, mass: 0.4 });
 
   function handleMove(event: React.MouseEvent<HTMLDivElement>) {
     if (shouldReduceMotion) return;

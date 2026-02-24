@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { projectFilters, projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
-import { Reveal } from "@/components/motion/reveal";
+import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
 export function ProjectsGrid({ className }: { className?: string }) {
@@ -27,7 +27,12 @@ export function ProjectsGrid({ className }: { className?: string }) {
             <Button
               key={filter}
               size="sm"
-              variant={isActive ? "default" : "outline"}
+              variant={isActive ? "secondary" : "outline"}
+              className={
+                isActive
+                  ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-2)]"
+                  : "border-[var(--color-border)] bg-white/72 text-[var(--color-foreground)]"
+              }
               onClick={() => setActive(filter)}
               aria-pressed={isActive}
             >
@@ -36,13 +41,13 @@ export function ProjectsGrid({ className }: { className?: string }) {
           );
         })}
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
-        {filtered.map((project, index) => (
-          <Reveal key={project.slug} delay={index * 0.05}>
+      <StaggerGroup className="grid gap-6 md:grid-cols-2">
+        {filtered.map((project) => (
+          <Reveal key={project.slug} variant="scale">
             <ProjectCard project={project} />
           </Reveal>
         ))}
-      </div>
+      </StaggerGroup>
     </div>
   );
 }

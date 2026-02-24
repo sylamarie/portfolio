@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 export function FormSubmitPhTime() {
-  const [value, setValue] = useState("");
-
-  useEffect(() => {
+  const value = useMemo(() => {
     const formatter = new Intl.DateTimeFormat("en-PH", {
       timeZone: "Asia/Manila",
       year: "numeric",
@@ -17,7 +15,7 @@ export function FormSubmitPhTime() {
       hour12: true,
     });
 
-    setValue(`${formatter.format(new Date())} (PHT)`);
+    return `${formatter.format(new Date())} (PHT)`;
   }, []);
 
   return <input type="hidden" name="Submitted At (PH Time)" value={value} readOnly />;

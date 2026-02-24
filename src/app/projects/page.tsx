@@ -1,13 +1,13 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { Section } from "@/components/section";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { Reveal } from "@/components/motion/reveal";
+import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Software and web development projects, including full-stack, backend API, and e-commerce implementations.",
+    "Software and web development projects with practical outcomes, clear architecture, and deployment-ready execution.",
 };
 
 export default function ProjectsPage() {
@@ -15,46 +15,44 @@ export default function ProjectsPage() {
     <div>
       <Section
         eyebrow="Projects"
-        title="Selected development work"
-        description="Projects from professional and academic experience, covering frontend, backend, APIs, and deployment."
+        title="Case-study oriented project work"
+        description="Review projects by outcome, implementation quality, and live delivery. Each card highlights practical value and engineering decisions."
       >
         <ProjectsGrid />
       </Section>
 
       <Section
-        eyebrow="Process"
-        title="How projects are delivered"
-        description="A consistent engineering workflow helps me deliver reliable and maintainable results."
+        eyebrow="Delivery Method"
+        title="How projects move from idea to live product"
+        description="A consistent process keeps scope clear and makes implementation reliable."
       >
-        <div className="grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="grid gap-6 md:grid-cols-3">
           {[
             {
               step: "01",
-              title: "Architecture",
-              body: "Define data models, API structure, and user flows based on requirements.",
+              title: "Problem framing",
+              body: "Define the user problem and translate it into clear technical scope.",
             },
             {
               step: "02",
-              title: "Implementation",
-              body: "Build responsive frontend interfaces and backend services with clean code practices.",
+              title: "Solution build",
+              body: "Implement UI, backend, and data integration with maintainable architecture.",
             },
             {
               step: "03",
-              title: "Testing & Deployment",
-              body: "Validate APIs with Postman, document with Swagger, and deploy using Render.",
+              title: "Outcome validation",
+              body: "Verify behavior, refine usability, and ship stable production deployment.",
             },
-          ].map((item, index) => (
-            <Reveal key={item.step} delay={index * 0.08}>
-              <div className="card-surface p-6">
+          ].map((item) => (
+            <Reveal key={item.step} variant="up">
+              <div className="card-surface h-full p-6">
                 <p className="text-sm font-semibold text-subtle">{item.step}</p>
-                <h3 className="mt-2 text-lg font-semibold text-foreground">
-                  {item.title}
-                </h3>
+                <h3 className="mt-2 text-lg font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-3 text-sm text-muted">{item.body}</p>
               </div>
             </Reveal>
           ))}
-        </div>
+        </StaggerGroup>
       </Section>
     </div>
   );

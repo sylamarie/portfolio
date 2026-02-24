@@ -1,10 +1,12 @@
-﻿import Link from "next/link";
+import Link from "next/link";
+
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Magnetic } from "@/components/motion/magnetic";
-import { Reveal } from "@/components/motion/reveal";
+import { ParallaxOrbs } from "@/components/motion/parallax-orbs";
+import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { ProjectCard } from "@/components/project-card";
 
@@ -13,49 +15,55 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden pb-16 pt-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(39,80,153,0.12),transparent_40%)]" />
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 md:grid-cols-[1.15fr_0.85fr] md:items-center md:px-8">
+      <section className="relative overflow-hidden pb-14 pt-20 md:pb-20 md:pt-24">
+        <ParallaxOrbs />
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 md:grid-cols-[1.2fr_0.8fr] md:items-center md:px-8">
           <div className="space-y-6">
             <Reveal>
               <p className="text-eyebrow text-subtle">
-                {site.role} • {site.location}
+                {site.role} · {site.location}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="text-display font-serif text-foreground">
-                Building reliable software and practical web solutions.
-              </h1>
+              <h1 className="text-display font-serif text-foreground">{site.tagline}</h1>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-hero text-muted">{site.shortPitch}</p>
+              <p className="max-w-2xl text-hero text-muted">{site.shortPitch}</p>
             </Reveal>
             <Reveal delay={0.15}>
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap gap-4">
                 <Magnetic>
-                  <Button asChild size="lg">
-                    <Link href="/projects">View projects</Link>
+                  <Button asChild size="lg" className="cta-emphasis">
+                    <Link href={site.cta.primaryHref}>
+                      <span className="cta-label">{site.cta.primaryLabel}</span>
+                    </Link>
                   </Button>
                 </Magnetic>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Contact me</Link>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-[var(--color-border)] text-[var(--color-foreground)]"
+                >
+                  <Link href={site.cta.secondaryHref}>{site.cta.secondaryLabel}</Link>
                 </Button>
               </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-                <Badge>Available</Badge>
-                <span>{site.availability}</span>
+              <div className="flex flex-wrap gap-3">
+                <Badge>Open for work</Badge>
+                <span className="text-sm text-muted">{site.availability}</span>
               </div>
             </Reveal>
           </div>
-          <Reveal delay={0.2}>
+
+          <Reveal delay={0.2} variant="scale">
             <div className="glass-panel p-6">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-                      Profile summary
+                      Profile snapshot
                     </p>
                     <p className="mt-2 text-2xl font-semibold text-foreground">
                       {site.name}
@@ -65,23 +73,20 @@ export default function HomePage() {
                     {site.initials}
                   </div>
                 </div>
-                <div className="space-y-2 text-sm text-muted">
-                  <p>Experienced in React, Node.js, Express, REST APIs, and database integration.</p>
-                  <p>Background includes Shopify e-commerce development and academic full-stack projects.</p>
+
+                <div className="space-y-2 rounded-xl border border-border/90 bg-white/90 p-4 text-sm">
+                  <p className="text-subtle">Core stack</p>
+                  <p className="font-medium text-foreground">
+                    React, Next.js, Node.js, Express, MongoDB, SQL
+                  </p>
                 </div>
-                <div className="grid gap-3 rounded-[12px] border border-border bg-white p-4 text-sm">
-                  <div className="flex items-center justify-between">
-                    <span className="text-subtle">Core stack</span>
-                    <span className="text-foreground">React, Node.js, Express</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-subtle">Databases</span>
-                    <span className="text-foreground">MongoDB, PostgreSQL, MySQL</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-subtle">Deployment</span>
-                    <span className="text-foreground">Render, GitHub</span>
-                  </div>
+
+                <div className="space-y-3">
+                  {site.valueProps.map((item) => (
+                    <p key={item} className="text-sm text-muted">
+                      {item}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -89,18 +94,34 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="pb-6 md:pb-12">
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+          <StaggerGroup className="grid gap-4 md:grid-cols-4">
+            {site.stats.map((stat) => (
+              <Reveal key={stat.label} variant="scale">
+                <div className="card-surface p-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-subtle">{stat.label}</p>
+                  <p className="mt-2 text-2xl font-semibold text-foreground">{stat.value}</p>
+                  <p className="mt-2 text-sm text-muted">{stat.context}</p>
+                </div>
+              </Reveal>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
       <Section
-        eyebrow="Featured"
-        title="Resume-aligned projects"
-        description="Selected projects covering web application development, backend APIs, and e-commerce implementation."
+        eyebrow="Featured Work"
+        title="Projects that show delivery and product thinking"
+        description="Each project demonstrates practical execution: defined user problem, clear implementation, and live deployment."
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          {featured.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 0.08}>
+        <StaggerGroup className="grid gap-6 md:grid-cols-3">
+          {featured.map((project) => (
+            <Reveal key={project.slug} variant="scale">
               <ProjectCard project={project} />
             </Reveal>
           ))}
-        </div>
+        </StaggerGroup>
         <div className="mt-10">
           <Button asChild variant="secondary">
             <Link href="/projects">Explore all projects</Link>
@@ -109,48 +130,55 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Work style"
-        title="How I build"
-        description="I follow a practical engineering process focused on clear architecture, tested APIs, and reliable deployments."
+        eyebrow="Workflow"
+        title="How I build and deliver"
+        description="I keep execution structured so projects stay clear, maintainable, and production-ready."
       >
-        <div className="grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="grid gap-6 md:grid-cols-3">
           {[
             {
               title: "Plan",
-              body: "Define requirements, data models, and technical scope before implementation.",
+              body: "Define scope, user flow, and data model before writing implementation code.",
             },
             {
               title: "Build",
-              body: "Develop responsive UIs and backend services with structured, maintainable code.",
+              body: "Develop responsive UI, APIs, and integrations with clean component and route structure.",
             },
             {
               title: "Validate",
-              body: "Test endpoints with Postman, document APIs with Swagger, and deploy on Render.",
+              body: "Test flows, verify API behavior, and deploy stable builds with documentation.",
             },
           ].map((item) => (
-            <div key={item.title} className="card-surface p-6">
-              <h3 className="text-base font-semibold text-foreground">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm text-muted">{item.body}</p>
-            </div>
+            <Reveal key={item.title} variant="up">
+              <div className="card-surface h-full p-6">
+                <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted">{item.body}</p>
+              </div>
+            </Reveal>
           ))}
-        </div>
+        </StaggerGroup>
       </Section>
 
       <Section
         eyebrow="Contact"
-        title="Open to new opportunities"
-        description="I am currently open to junior software developer roles, web development projects, and remote collaboration."
+        title="Ready to contribute to real product work"
+        description="If you need a reliable junior developer for web products, APIs, or Shopify work, send your project details."
       >
         <div className="flex flex-wrap items-center gap-4">
           <Magnetic>
-            <Button asChild size="lg">
-              <Link href="/contact">Send an inquiry</Link>
+            <Button asChild size="lg" className="cta-emphasis">
+              <Link href="/contact">
+                <span className="cta-label">Send project details</span>
+              </Link>
             </Button>
           </Magnetic>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/about">View full background</Link>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-[var(--color-border)] text-[var(--color-foreground)]"
+          >
+            <Link href="/about">View background</Link>
           </Button>
         </div>
       </Section>

@@ -21,25 +21,25 @@ export function Section({
   className,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-16 md:py-24", className)}>
+    <section id={id} className={cn("section-fade py-[4.5rem] md:py-24", className)}>
       <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
         {(eyebrow || title || description) && (
-          <div className="mb-10 max-w-2xl">
+          <div className="mb-12 max-w-3xl space-y-3 md:mb-14">
             {eyebrow && (
               <Reveal>
                 <p className="text-eyebrow text-subtle">{eyebrow}</p>
               </Reveal>
             )}
             {title && (
-              <Reveal delay={0.05}>
-                <h2 className="text-title mt-4 font-serif text-foreground">
+              <Reveal delay={0.06}>
+                <h2 className="text-title font-serif text-foreground">
                   {title}
                 </h2>
               </Reveal>
             )}
             {description && (
-              <Reveal delay={0.1}>
-                <p className="mt-4 text-base text-muted">{description}</p>
+              <Reveal delay={0.12}>
+                <p className="max-w-2xl text-base text-muted">{description}</p>
               </Reveal>
             )}
           </div>

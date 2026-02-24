@@ -1,4 +1,33 @@
-﻿export const site = {
+export type ProofStat = {
+  label: string;
+  value: string;
+  context: string;
+};
+
+export type SiteCta = {
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+};
+
+export type SiteData = {
+  name: string;
+  role: string;
+  location: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  initials: string;
+  tagline: string;
+  shortPitch: string;
+  availability: string;
+  valueProps: string[];
+  stats: ProofStat[];
+  cta: SiteCta;
+};
+
+export const site: SiteData = {
   name: "Syla Marie Garzon Cumuyog",
   role: "Software Developer / Web Developer",
   location: "Philippines",
@@ -6,9 +35,44 @@
   github: "https://github.com/sylamarie",
   linkedin: "https://www.linkedin.com/in/syla-marie-cumuyog-b11a62284/",
   initials: "SM",
+  tagline: "Building practical software that feels clear, fast, and reliable.",
   shortPitch:
-    "I build practical web applications with React, Node.js, Express, and modern frontend tools, with focus on reliability and clean user experience.",
-  availability: "Open to remote junior software/web developer roles and freelance work.",
+    "I build full-stack web products with React, Node.js, Express, and structured API workflows, with focus on clean UX and dependable delivery.",
+  availability:
+    "Open to remote junior software/web developer roles and freelance collaboration.",
+  valueProps: [
+    "Translate requirements into clean architecture and realistic delivery plans.",
+    "Build responsive interfaces with maintainable component systems.",
+    "Ship backend integrations with documented APIs and reliable data flow.",
+  ],
+  stats: [
+    {
+      label: "Portfolio projects",
+      value: "3+",
+      context: "Live or actively delivered web projects.",
+    },
+    {
+      label: "Core stack",
+      value: "6",
+      context: "React, Next.js, Node.js, Express, SQL, MongoDB.",
+    },
+    {
+      label: "Delivery workflow",
+      value: "End-to-end",
+      context: "Architecture, implementation, testing, deployment.",
+    },
+    {
+      label: "Response time",
+      value: "1-2 days",
+      context: "Typical reply window for project inquiries.",
+    },
+  ],
+  cta: {
+    primaryLabel: "View projects",
+    primaryHref: "/projects",
+    secondaryLabel: "Start a conversation",
+    secondaryHref: "/contact",
+  },
 };
 
 export const skills = [
@@ -47,14 +111,14 @@ export const experience = [
     title: "E-commerce Web Developer",
     company: "Freelance",
     summary:
-      "Designed and developed an e-commerce website using Shopify, customized themes, managed product listings, configured payment workflows, and optimized responsive navigation and performance.",
+      "Designed and shipped a Shopify e-commerce site, customized themes, structured product listings, and improved navigation and performance for consistent mobile and desktop UX.",
   },
   {
     period: "Nov 2021 - Apr 2023",
     title: "Full-Time Volunteer Representative",
     company: "Organization Volunteer Service",
     summary:
-      "Communicated daily with 50+ individuals, mentored new volunteers, and managed structured follow-up and reporting processes that strengthened teamwork and leadership.",
+      "Handled daily communication with 50+ individuals, mentored new volunteers, and maintained consistent follow-up systems that improved team coordination.",
   },
 ];
 

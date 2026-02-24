@@ -1,7 +1,7 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { Section } from "@/components/section";
-import { Reveal } from "@/components/motion/reveal";
+import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { site, skills, tools, experience, education, certificates } from "@/data/site";
 import { CertificatesGallery } from "@/components/certificates-gallery";
@@ -9,7 +9,7 @@ import { EducationGrid } from "@/components/education-grid";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Resume background, technical skills, and experience timeline.",
+  description: "Background, technical capabilities, education, and work experience.",
 };
 
 export default function AboutPage() {
@@ -17,33 +17,34 @@ export default function AboutPage() {
     <div>
       <Section
         eyebrow="About"
-        title="Software development background"
-        description="My focus is practical software engineering: clean architecture, reliable APIs, and responsive interfaces that solve real user needs."
+        title="Engineering mindset with practical execution"
+        description="I focus on building dependable software: clear architecture, maintainable interfaces, and outcomes aligned with real user needs."
       >
-        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
-          <Reveal>
-            <div className="card-surface p-6">
+        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-stretch">
+          <Reveal className="h-full">
+            <div className="card-surface h-full p-6">
               <p className="text-sm text-muted">
-                {site.name} is a software developer with hands-on experience in
-                frontend and backend development. My current focus is building
-                full-stack applications with React, Node.js, and Express.
+                {site.name} is a software developer experienced in frontend and
+                backend implementation. Current work centers on full-stack web
+                development with React, Node.js, and Express.
               </p>
               <p className="mt-4 text-sm text-muted">
-                I also work on e-commerce development using Shopify, API
-                documentation with Swagger, and deployment workflows using
-                Render and GitHub.
+                Additional strengths include Shopify e-commerce development, API
+                documentation with Swagger, and deployment workflows with Render
+                and GitHub.
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.05}>
-            <div className="card-surface p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-                Location
+
+          <Reveal delay={0.05} variant="scale" className="h-full">
+            <div className="card-surface h-full p-6">
+              <p className="text-sm font-semibold text-foreground">{site.name}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.14em] text-subtle">
+                Software Developer
               </p>
-              <p className="mt-2 text-lg font-semibold text-foreground">
-                {site.location}
-              </p>
-              <p className="mt-4 text-xs uppercase tracking-[0.2em] text-subtle">
+              <p className="mt-5 text-xs uppercase tracking-[0.2em] text-subtle">Location</p>
+              <p className="mt-2 text-lg font-semibold text-foreground">{site.location}</p>
+              <p className="mt-5 text-xs uppercase tracking-[0.2em] text-subtle">
                 Availability
               </p>
               <p className="mt-2 text-sm text-muted">{site.availability}</p>
@@ -55,7 +56,7 @@ export default function AboutPage() {
       <Section
         eyebrow="Skills"
         title="Technical strengths"
-        description="Core technical capabilities from my resume and recent academic project work."
+        description="Applied skills used in real coursework, projects, and delivery workflows."
       >
         <div className="flex flex-wrap gap-3">
           {skills.map((skill) => (
@@ -69,21 +70,21 @@ export default function AboutPage() {
       <Section
         eyebrow="Tools"
         title="Development stack"
-        description="Primary tools and technologies used in my software and web development projects."
+        description="Core technologies used across frontend, backend, and deployment."
       >
-        <div className="grid gap-4 md:grid-cols-4">
+        <StaggerGroup className="grid gap-4 md:grid-cols-4">
           {tools.map((tool) => (
-            <div key={tool} className="card-surface p-4 text-sm text-foreground">
-              {tool}
-            </div>
+            <Reveal key={tool} variant="scale">
+              <div className="card-surface p-4 text-sm text-foreground">{tool}</div>
+            </Reveal>
           ))}
-        </div>
+        </StaggerGroup>
       </Section>
 
       <Section
         eyebrow="Education"
         title="Academic background"
-        description="Software development degree programs completed and in progress at BYU-Idaho."
+        description="Completed software development programs and credentials."
       >
         <EducationGrid education={education} />
       </Section>
@@ -91,7 +92,7 @@ export default function AboutPage() {
       <Section
         eyebrow="Certificates"
         title="Completed certificates"
-        description="Software and web development certificates from BYU-Idaho."
+        description="Formal training credentials in software and web development."
       >
         <CertificatesGallery certificates={certificates} />
       </Section>
@@ -99,11 +100,11 @@ export default function AboutPage() {
       <Section
         eyebrow="Experience"
         title="Professional and leadership experience"
-        description="Recent roles focused on development, communication, and structured execution."
+        description="Roles focused on execution discipline, communication, and delivery."
       >
-        <div className="space-y-6">
-          {experience.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.08}>
+        <StaggerGroup className="space-y-6">
+          {experience.map((item) => (
+            <Reveal key={item.title} variant="up">
               <div className="card-surface p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="text-sm font-semibold text-foreground">
@@ -117,7 +118,7 @@ export default function AboutPage() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </StaggerGroup>
       </Section>
     </div>
   );
