@@ -31,18 +31,38 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function resolvePublicOrigin(request: Request) {
+  const proto = request.headers.get("x-forwarded-proto");
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
+
+  if (proto && host) {
+    return `${proto}://${host}`;
+  }
+
+  if (host) {
+    return `https://${host}`;
+  }
+
+  return process.env.NEXT_PUBLIC_SITE_URL ?? new URL(request.url).origin;
+}
+
+function redirectToContact(request: Request, query: "sent=1" | "error=1") {
+  const origin = resolvePublicOrigin(request);
+  return NextResponse.redirect(`${origin}/contact?${query}`, 303);
+}
+
 export async function POST(request: Request) {
   const formData = await request.formData();
   const honeypot = String(formData.get("_honey") ?? "").trim();
 
   if (honeypot) {
-    return NextResponse.redirect(new URL("/contact?sent=1", request.url), 303);
+    return redirectToContact(request, "sent=1");
   }
 
   const payload = readPayload(formData);
 
   if (!payload.name || !payload.email || !payload.message || !isValidEmail(payload.email)) {
-    return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
+    return redirectToContact(request, "error=1");
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -51,7 +71,7 @@ export async function POST(request: Request) {
     process.env.CONTACT_FROM_EMAIL ?? "Portfolio Contact <onboarding@resend.dev>";
 
   if (!apiKey) {
-    return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
+    return redirectToContact(request, "error=1");
   }
 
   const safeName = escapeHtml(payload.name);
@@ -85,8 +105,8 @@ export async function POST(request: Request) {
   });
 
   if (!response.ok) {
-    return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
+    return redirectToContact(request, "error=1");
   }
 
-  return NextResponse.redirect(new URL("/contact?sent=1", request.url), 303);
+  return redirectToContact(request, "sent=1");
 }
