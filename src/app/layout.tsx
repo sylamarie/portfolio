@@ -55,9 +55,6 @@ export const metadata: Metadata = {
     description:
       "Software development portfolio featuring full-stack, backend API, and e-commerce project experience.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export const viewport: Viewport = {
