@@ -50,13 +50,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               className="card-surface space-y-6 p-6"
               aria-describedby="contact-note"
               method="POST"
-              action="https://formsubmit.co/sylamariecumuyog@outlook.com"
+              action="/api/contact"
             >
-              <input type="hidden" name="_subject" value="New Client Inquiry - Syla Cumuyog Portfolio" />
-              <input type="hidden" name="_next" value="https://sylamariecumuyog-portfolio.onrender.com/contact?sent=1" />
-              <input type="hidden" name="_error" value="https://sylamariecumuyog-portfolio.onrender.com/contact?error=1" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="Source" value="Portfolio Contact Page" />
               <FormSubmitPhTime />
               <div className="hidden" aria-hidden="true">
                 <Label htmlFor="_honey">Leave this field empty</Label>

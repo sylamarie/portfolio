@@ -18,5 +18,5 @@ export function FormSubmitPhTime() {
     return `${formatter.format(new Date())} (PHT)`;
   }, []);
 
-  return <input type="hidden" name="Submitted At (PH Time)" value={value} readOnly />;
+  return <input type="hidden" name="submitted_at_ph_time" value={value} readOnly />;
 }
