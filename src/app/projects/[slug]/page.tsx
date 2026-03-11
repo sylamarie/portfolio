@@ -8,6 +8,7 @@ import { Section } from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal, StaggerGroup } from "@/components/motion/reveal";
+import { cn } from "@/lib/utils";
 
 type PageProps = {
   params: { slug: string };
@@ -73,10 +74,11 @@ export default function ProjectDetailPage({ params }: PageProps) {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className={[
+                  className={cn(
                     project.imageFit === "contain" ? "object-contain p-4" : "object-cover",
                     project.imagePosition === "top" ? "object-top" : "object-center",
-                  ].join(" ")}
+                    project.imageClassName
+                  )}
                   priority
                 />
               </div>

@@ -45,7 +45,8 @@ export function ProjectCard({ project, className }: { project: Project; classNam
             className={cn(
               "transition duration-500 group-hover:scale-[1.1]",
               project.imageFit === "contain" ? "object-contain p-3" : "object-cover",
-              project.imagePosition === "top" ? "object-top" : "object-center"
+              project.imagePosition === "top" ? "object-top" : "object-center",
+              project.imageClassName
             )}
           />
         </div>

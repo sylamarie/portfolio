@@ -17,6 +17,7 @@ export type Project = {
   image: string;
   imageFit?: "cover" | "contain";
   imagePosition?: "center" | "top";
+  imageClassName?: string;
 };
 
 export const projectFilters = ["All", "Web Apps", "Coming Soon"] as const;
@@ -105,9 +106,10 @@ export const projects: Project[] = [
       "Published project on Render with responsive layout support.",
     ],
     link: "https://cse325-visioncoders-ytz0.onrender.com/",
-    image: "/projects/lunch-mate-dashboard.png",
-    imageFit: "contain",
+    image: "/projects/lunch-mate-landing.png",
+    imageFit: "cover",
     imagePosition: "top",
+    imageClassName: "scale-[1.01]",
   },
   {
     title: "SleepOutside",
@@ -138,6 +140,7 @@ export const projects: Project[] = [
     image: "/projects/sleep-outside-landing.png",
     imageFit: "cover",
     imagePosition: "top",
+    imageClassName: "scale-[1.03]",
   },
   {
     title: "To-Do List App",
