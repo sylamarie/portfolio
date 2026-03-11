@@ -140,6 +140,35 @@ export const projects: Project[] = [
     imagePosition: "top",
   },
   {
+    title: "To-Do List App",
+    slug: "todo-list-app",
+    summary:
+      "A task management web app built to keep daily work organized through a simple to-do workflow.",
+    description:
+      "To-Do List App is a practical web project for tracking tasks, organizing work items, and maintaining a clear day-to-day workflow in a clean interface.",
+    impact: "Helps users stay organized with a focused task-tracking experience.",
+    problem:
+      "Task tracking often becomes cluttered when users rely on scattered notes or inconsistent tools.",
+    solution:
+      "Built a straightforward to-do workflow with simple task organization, clear actions, and an accessible layout.",
+    outcome:
+      "Delivered a live web app that supports practical task management and everyday productivity.",
+    category: "Web Apps",
+    year: "2025",
+    role: "Web developer",
+    tags: ["React", "Render", "Productivity"],
+    highlights: [
+      "Built a live task management application for everyday use.",
+      "Organized task workflows into a clean and simple interface.",
+      "Focused on practical usability and straightforward interactions.",
+      "Published the project on Render.",
+    ],
+    link: "https://todolist-f8fc.onrender.com",
+    image: "/projects/todolist.png",
+    imageFit: "cover",
+    imagePosition: "top",
+  },
+  {
     title: "More Projects Coming Soon",
     slug: "more-projects-coming-soon",
     summary:

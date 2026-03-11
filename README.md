@@ -2,6 +2,18 @@
 
 Modern personal portfolio built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, and shadcn/ui.
 
+## Live Deployment
+
+- Portfolio: `https://sylamariecumuyog-portfolio.onrender.com`
+
+## Featured Projects
+
+- LifeBudget: `https://lifebudget-web.onrender.com/`
+- Budgeting Buddy: `https://budgetingbuddy.onrender.com/`
+- Lunch Mate: `https://cse325-visioncoders-ytz0.onrender.com/`
+- SleepOutside: `https://wdd330team08.netlify.app/`
+- To-Do List App: `https://todolist-f8fc.onrender.com`
+
 ## Screenshots
 
 Add screenshots to `public/screenshots/` and update the links below.
@@ -26,20 +38,6 @@ Open `http://localhost:3000`.
 - `npm run build` - production build
 - `npm run start` - run production build
 - `npm run lint` - lint
-
-## Contact Form Email Setup (Resend)
-
-Create an `.env.local` file with:
-
-```bash
-RESEND_API_KEY=your_resend_api_key
-CONTACT_TO_EMAIL=sylamariecumuyog@outlook.com
-CONTACT_FROM_EMAIL="Portfolio Contact <onboarding@resend.dev>"
-```
-
-- `RESEND_API_KEY` is required.
-- `CONTACT_TO_EMAIL` defaults to `sylamariecumuyog@outlook.com` if omitted.
-- `CONTACT_FROM_EMAIL` can stay as `onboarding@resend.dev` for testing.
 
 ## Customize Content
 
