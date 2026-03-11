@@ -16,73 +16,68 @@ export default function ContactPage() {
     <div>
       <Section
         eyebrow="Contact"
-        title="Let&apos;s connect directly"
-        description="The inquiry form is removed. Please contact me through email or social links below."
+        title="Get in touch"
+        description="For job opportunities, freelance work, or project discussions, contact me directly through email or LinkedIn."
       >
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <Reveal variant="scale">
-            <div className="card-surface space-y-6 p-6">
+        <Reveal variant="scale">
+          <div className="card-surface max-w-3xl space-y-8 p-6 md:p-8">
+            <div className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.2em] text-subtle">Contact Details</p>
+              <h3 className="text-2xl font-semibold text-foreground">{site.email}</h3>
+              <p className="text-sm leading-7 text-muted">
+                I am open to remote software and web development opportunities, as well as
+                select freelance collaborations.
+              </p>
+            </div>
+
+            <div className="grid gap-6 border-t border-[var(--color-border)] pt-6 md:grid-cols-3">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-subtle">Primary Email</p>
-                <p className="mt-2 text-xl font-semibold text-foreground">{site.email}</p>
-                <p className="mt-3 text-sm text-muted">
-                  For job opportunities, collaborations, or project work, email me directly.
-                </p>
+                <p className="text-xs uppercase tracking-[0.2em] text-subtle">Email</p>
+                <Link
+                  className="mt-3 block text-sm text-muted transition hover:text-foreground"
+                  href={`mailto:${site.email}`}
+                >
+                  {site.email}
+                </Link>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="cta-emphasis">
-                  <Link href={`mailto:${site.email}`}>
-                    <span className="cta-label">Email me</span>
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href={site.linkedin} target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </Link>
-                </Button>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-subtle">LinkedIn</p>
+                <Link
+                  className="mt-3 block text-sm text-muted transition hover:text-foreground"
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View profile
+                </Link>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-subtle">Location</p>
+                <p className="mt-3 text-sm text-muted">{site.location}</p>
               </div>
             </div>
-          </Reveal>
 
-          <div className="space-y-6">
-            <Reveal delay={0.06}>
-              <div className="card-surface p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-subtle">Connect</p>
-                <div className="mt-4 space-y-3 text-sm">
-                  <Link
-                    className="block text-muted transition hover:text-foreground"
-                    href={`mailto:${site.email}`}
-                  >
-                    {site.email}
-                  </Link>
-                  <Link
-                    className="block text-muted transition hover:text-foreground"
-                    href={site.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn Profile
-                  </Link>
-                  <Link
-                    className="block text-muted transition hover:text-foreground"
-                    href={site.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub Profile
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg" className="cta-emphasis">
+                <Link href={`mailto:${site.email}`}>
+                  <span className="cta-label">Send email</span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href={site.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="lg">
+                <Link href={site.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </Link>
+              </Button>
+            </div>
 
-            <Reveal delay={0.1} variant="scale">
-              <div className="card-surface p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-subtle">Availability</p>
-                <p className="mt-3 text-sm text-muted">{site.availability}</p>
-              </div>
-            </Reveal>
+            <p className="text-sm text-muted">{site.availability}</p>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </div>
   );

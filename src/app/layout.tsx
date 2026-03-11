@@ -27,6 +27,11 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sylamariecumuyog-portfolio.onrender.com"),
+  icons: {
+    icon: "/favicon-syla.svg",
+    shortcut: "/favicon-syla.svg",
+    apple: "/favicon-syla.svg",
+  },
   title: {
     default: "Syla Marie Garzon Cumuyog - Software Developer",
     template: "%s - Syla Marie Garzon Cumuyog",
