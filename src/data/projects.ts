@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "Stored budget and expense records using MongoDB.",
       "Implemented responsive pages for mobile and desktop screens.",
     ],
-    link: "https://lifebudget-4oje.onrender.com/",
+    link: "https://lifebudget-web.onrender.com/",
     image: "/projects/lifebudget.jpg",
     imageFit: "cover",
     imagePosition: "top",
