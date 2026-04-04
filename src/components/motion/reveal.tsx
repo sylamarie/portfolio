@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
@@ -27,6 +28,14 @@ type RevealProps = {
   variant?: keyof typeof variants;
 };
 
+function subscribe() {
+  return () => {};
+}
+
+function useHasHydrated() {
+  return useSyncExternalStore(subscribe, () => true, () => false);
+}
+
 export function Reveal({
   children,
   delay = 0,
@@ -34,9 +43,10 @@ export function Reveal({
   variant = "up",
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const isMounted = useHasHydrated();
   const selected = variants[variant];
 
-  if (shouldReduceMotion) {
+  if (shouldReduceMotion || !isMounted) {
     return <div className={className}>{children}</div>;
   }
 
@@ -67,8 +77,9 @@ export function StaggerGroup({
   staggerChildren = 0.08,
 }: StaggerGroupProps) {
   const shouldReduceMotion = useReducedMotion();
+  const isMounted = useHasHydrated();
 
-  if (shouldReduceMotion) {
+  if (shouldReduceMotion || !isMounted) {
     return <div className={className}>{children}</div>;
   }
 
