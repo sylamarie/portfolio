@@ -1,29 +1,8 @@
-﻿import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Lora, Manrope } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { PageTransition } from "@/components/motion/page-transition";
-import { CinematicBackground } from "@/components/motion/cinematic-background";
-
-const sans = Manrope({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const serif = Lora({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sylamariecumuyog-portfolio.onrender.com"),
@@ -75,10 +54,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sans.variable} ${serif.variable} ${mono.variable} min-h-screen bg-background font-sans text-foreground`}
-      >
-        <CinematicBackground />
+      <body className="min-h-screen bg-background font-sans text-foreground">
+        <div className="site-background" aria-hidden />
         <a
           href="#content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus-ring rounded-full bg-white px-4 py-2 text-sm shadow"
@@ -87,7 +64,7 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         <main id="content" className="min-h-screen">
-          <PageTransition>{children}</PageTransition>
+          {children}
         </main>
         <SiteFooter />
       </body>

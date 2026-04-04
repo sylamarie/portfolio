@@ -4,8 +4,6 @@ import { site } from "@/data/site";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Magnetic } from "@/components/motion/magnetic";
-import { ParallaxOrbs } from "@/components/motion/parallax-orbs";
 import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { ProjectCard } from "@/components/project-card";
@@ -16,7 +14,9 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative overflow-hidden pb-14 pt-20 md:pb-20 md:pt-24">
-        <ParallaxOrbs />
+        <div className="hero-orb -right-20 top-10 h-64 w-64 bg-[var(--color-glow)] opacity-50" />
+        <div className="hero-orb -left-24 top-48 h-72 w-72 bg-accent/20 opacity-40" />
+        <div className="hero-orb left-1/3 top-20 h-40 w-40 bg-[rgba(28,92,168,0.16)] opacity-40" />
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 md:grid-cols-[1.2fr_0.8fr] md:items-center md:px-8">
           <div className="space-y-6">
             <Reveal>
@@ -32,13 +32,11 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.15}>
               <div className="flex flex-wrap gap-4">
-                <Magnetic>
-                  <Button asChild size="lg" className="cta-emphasis">
-                    <Link href={site.cta.primaryHref}>
-                      <span className="cta-label">{site.cta.primaryLabel}</span>
-                    </Link>
-                  </Button>
-                </Magnetic>
+                <Button asChild size="lg" className="cta-emphasis">
+                  <Link href={site.cta.primaryHref}>
+                    <span className="cta-label">{site.cta.primaryLabel}</span>
+                  </Link>
+                </Button>
                 <Button
                   asChild
                   variant="outline"
@@ -165,13 +163,11 @@ export default function HomePage() {
         description="If you need a reliable junior developer for web products, APIs, or Shopify work, send your project details."
       >
         <div className="flex flex-wrap items-center gap-4">
-          <Magnetic>
-            <Button asChild size="lg" className="cta-emphasis">
-              <Link href="/contact">
-                <span className="cta-label">Send project details</span>
-              </Link>
-            </Button>
-          </Magnetic>
+          <Button asChild size="lg" className="cta-emphasis">
+            <Link href="/contact">
+              <span className="cta-label">Send project details</span>
+            </Link>
+          </Button>
           <Button
             asChild
             variant="outline"
