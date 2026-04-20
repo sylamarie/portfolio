@@ -7,6 +7,7 @@ import { projects } from "@/data/projects";
 import { Section } from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ParallaxOrbs } from "@/components/motion/parallax-orbs";
 import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +38,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <div>
-      <section className="pb-12 pt-20">
+      <section className="relative overflow-hidden pb-12 pt-20">
+        <ParallaxOrbs />
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
             <Reveal>

@@ -11,6 +11,9 @@ type EducationItem = {
   location: string;
   status: string;
   diplomaImage?: string;
+  overview?: string;
+  outcomes?: string[];
+  careerPaths?: string[];
 };
 
 type EducationGridProps = {
@@ -60,6 +63,49 @@ export function EducationGrid({ education }: EducationGridProps) {
           </h3>
           <p className="mt-2 text-sm text-muted">{item.school}</p>
           <p className="text-sm text-muted">{item.location}</p>
+          {item.overview ? (
+            <p className="mt-4 text-sm leading-7 text-muted">{item.overview}</p>
+          ) : null}
+          {item.outcomes?.length || item.careerPaths?.length ? (
+            <details className="mt-4 rounded-[14px] border border-border bg-white/80 p-4">
+              <summary className="cursor-pointer text-sm font-semibold text-foreground">
+                Program details
+              </summary>
+              <div className="mt-4 space-y-4">
+                {item.outcomes?.length ? (
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-subtle">
+                      Outcomes
+                    </p>
+                    <ul className="mt-3 space-y-2 text-sm text-muted">
+                      {item.outcomes.map((outcome) => (
+                        <li key={outcome} className="leading-6">
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                {item.careerPaths?.length ? (
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-subtle">
+                      Potential roles
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {item.careerPaths.map((path) => (
+                        <span
+                          key={path}
+                          className="rounded-full border border-border bg-white px-3 py-1 text-xs text-foreground"
+                        >
+                          {path}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </details>
+          ) : null}
           {item.diplomaImage ? (
             <button
               type="button"

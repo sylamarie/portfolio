@@ -33,7 +33,11 @@ export function ProjectCard({ project, className }: { project: Project; classNam
         <motion.div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(28,92,168,0)_20%,rgba(28,92,168,0.14)_50%,rgba(28,92,168,0)_80%)]"
           animate={shouldReduceMotion ? undefined : { x: ["-120%", "120%"] }}
-          transition={shouldReduceMotion ? undefined : { duration: 4.8, repeat: Infinity, ease: "linear" }}
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { duration: 4.8, repeat: Infinity, ease: "linear" }
+          }
         />
 
         <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-white to-slate-50">
@@ -53,7 +57,9 @@ export function ProjectCard({ project, className }: { project: Project; classNam
         <div className="relative z-10 flex flex-1 flex-col gap-4 p-6">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-subtle">
-              {project.category} · {project.year}
+              {project.category}
+              {" · "}
+              {project.year}
             </p>
             <h3 className="mt-2 text-lg font-semibold text-foreground">{project.title}</h3>
             <p className="mt-2 text-sm text-muted">{project.summary}</p>

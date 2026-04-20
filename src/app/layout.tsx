@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+import { CinematicBackground } from "@/components/motion/cinematic-background";
+import { PageTransition } from "@/components/motion/page-transition";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -54,8 +56,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans text-foreground">
-        <div className="site-background" aria-hidden />
+      <body className="min-h-screen overflow-x-hidden bg-background font-sans text-foreground">
+        <CinematicBackground />
         <a
           href="#content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus-ring rounded-full bg-white px-4 py-2 text-sm shadow"
@@ -64,7 +66,7 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         <main id="content" className="min-h-screen">
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <SiteFooter />
       </body>

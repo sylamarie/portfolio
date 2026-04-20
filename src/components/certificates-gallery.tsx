@@ -13,6 +13,11 @@ type Certificate = {
   issuer: string;
   image: string;
   pdf?: string;
+  credits?: string;
+  level?: string;
+  overview?: string;
+  outcomes?: string[];
+  careerPaths?: string[];
 };
 
 type CertificatesGalleryProps = {
@@ -54,12 +59,7 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
   return (
     <div className={cn("grid gap-8 lg:grid-cols-3", className)}>
       {certificates.map((cert, index) => (
-        <button
-          key={cert.title}
-          type="button"
-          onClick={() => setActiveIndex(index)}
-          className="card-surface group text-left focus-ring"
-        >
+        <div key={cert.title} className="card-surface overflow-hidden">
           <div className="p-6">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
@@ -72,8 +72,69 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
                 Certificate
               </span>
             </div>
+            {cert.credits || cert.level ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {cert.credits ? (
+                  <span className="rounded-full border border-border bg-white px-3 py-1 text-xs text-foreground">
+                    {cert.credits}
+                  </span>
+                ) : null}
+                {cert.level ? (
+                  <span className="rounded-full border border-border bg-white px-3 py-1 text-xs text-foreground">
+                    {cert.level}
+                  </span>
+                ) : null}
+              </div>
+            ) : null}
+            {cert.overview ? (
+              <p className="mt-4 text-sm leading-7 text-muted">{cert.overview}</p>
+            ) : null}
+            {cert.outcomes?.length || cert.careerPaths?.length ? (
+              <details className="mt-4 rounded-[14px] border border-border bg-white/80 p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-foreground">
+                  Program details
+                </summary>
+                <div className="mt-4 space-y-4">
+                  {cert.outcomes?.length ? (
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-subtle">
+                        Outcomes
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm text-muted">
+                        {cert.outcomes.map((outcome) => (
+                          <li key={outcome} className="leading-6">
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {cert.careerPaths?.length ? (
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-subtle">
+                        Potential roles
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {cert.careerPaths.map((path) => (
+                          <span
+                            key={path}
+                            className="rounded-full border border-border bg-white px-3 py-1 text-xs text-foreground"
+                          >
+                            {path}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              </details>
+            ) : null}
           </div>
-          <div className="overflow-hidden rounded-[16px] border border-border bg-white shadow-soft">
+          <button
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            className="group block w-full overflow-hidden rounded-[16px] border border-border bg-white text-left shadow-soft focus-ring"
+          >
             <Image
               src={cert.image}
               alt={`${cert.title} certificate`}
@@ -81,8 +142,8 @@ export function CertificatesGallery({ certificates, className }: CertificatesGal
               height={1200}
               className="h-auto w-full object-contain transition duration-300 group-hover:scale-[1.01]"
             />
-          </div>
-        </button>
+          </button>
+        </div>
       ))}
 
       {canPortal

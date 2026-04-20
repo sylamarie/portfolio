@@ -7,7 +7,7 @@ export type Project = {
   problem?: string;
   solution?: string;
   outcome?: string;
-  category: "Web Apps" | "Coming Soon";
+  category: "Web Apps";
   year: string;
   role: string;
   tags: string[];
@@ -19,8 +19,6 @@ export type Project = {
   imagePosition?: "center" | "top";
   imageClassName?: string;
 };
-
-export const projectFilters = ["All", "Web Apps", "Coming Soon"] as const;
 
 export const projects: Project[] = [
   {
@@ -169,34 +167,6 @@ export const projects: Project[] = [
     link: "https://todolist-f8fc.onrender.com",
     image: "/projects/todolist.png",
     imageFit: "cover",
-    imagePosition: "top",
-  },
-  {
-    title: "More Projects Coming Soon",
-    slug: "more-projects-coming-soon",
-    summary:
-      "Additional projects will be added here soon as they are finalized and published.",
-    description:
-      "I am currently preparing more portfolio projects. This section will be updated with new work and live links soon.",
-    impact: "Signals ongoing execution and continuous project delivery.",
-    problem:
-      "Not all completed work is published in a portfolio-ready format yet.",
-    solution:
-      "Track and package upcoming builds with clear demos and technical writeups.",
-    outcome:
-      "Planned updates will add more domain coverage and implementation depth.",
-    category: "Coming Soon",
-    year: "2026",
-    role: "In progress",
-    tags: ["Upcoming", "Portfolio Update"],
-    highlights: [
-      "New projects are currently being finalized.",
-      "Live demos and technical breakdowns will be added soon.",
-      "Project details will be published once ready.",
-      "Thank you for checking back soon.",
-    ],
-    image: "/projects/aurora.svg",
-    imageFit: "contain",
     imagePosition: "top",
   },
 ];

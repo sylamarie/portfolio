@@ -21,10 +21,10 @@ export function Section({
   className,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("section-fade py-[4.5rem] md:py-24", className)}>
+    <section id={id} className={cn("section-fade py-10 md:py-14", className)}>
       <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
         {(eyebrow || title || description) && (
-          <div className="mb-12 max-w-3xl space-y-3 md:mb-14">
+          <div className="mb-7 max-w-3xl space-y-3 md:mb-5">
             {eyebrow && (
               <Reveal>
                 <p className="text-eyebrow text-subtle">{eyebrow}</p>
