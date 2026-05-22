@@ -58,7 +58,7 @@ export function ProjectCard({ project, className }: { project: Project; classNam
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-subtle">
               {project.category}
-              {" · "}
+              {" - "}
               {project.year}
             </p>
             <h3 className="mt-2 text-lg font-semibold text-foreground">{project.title}</h3>

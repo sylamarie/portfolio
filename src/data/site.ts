@@ -59,7 +59,8 @@ export const site: SiteData = {
     {
       label: "Freelance work",
       value: "1 year",
-      context: "Delivered Shopify and web development work for a live client site.",
+      context:
+        "Delivered Shopify, WordPress, and Systeme.io website customization work.",
     },
     {
       label: "Availability",
@@ -101,6 +102,8 @@ export const tools = [
   "PostgreSQL",
   "MySQL",
   "Shopify",
+  "WordPress",
+  "Systeme.io",
   "Git",
   "GitHub",
 ];

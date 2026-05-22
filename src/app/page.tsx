@@ -16,6 +16,7 @@ import { ParallaxOrbs } from "@/components/motion/parallax-orbs";
 import { Reveal, StaggerGroup } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { ProjectsGrid } from "@/components/projects-grid";
+import { FreelanceProjectsGrid } from "@/components/freelance-projects-grid";
 import { CertificatesGallery } from "@/components/certificates-gallery";
 import { EducationGrid } from "@/components/education-grid";
 import { StackGrid } from "@/components/stack-grid";
@@ -153,6 +154,14 @@ export default function HomePage() {
         >
           <ProjectsGrid />
         </Section>
+
+        <Section
+          eyebrow="Freelance Projects"
+          title="Website customization and page-building work"
+          description="Project-based freelance work using WordPress and Systeme.io, focused on clean page structure, responsive layouts, and practical front-end improvements."
+        >
+          <FreelanceProjectsGrid />
+        </Section>
       </div>
 
       <div id="about" className="scroll-mt-28">
@@ -171,8 +180,8 @@ export default function HomePage() {
                 </p>
                 <p className="mt-4 text-sm text-muted">
                   Her recent work includes budgeting apps, frontend team projects, and
-                  freelance Shopify implementation, with strength in turning requirements
-                  into clear, usable web experiences.
+                  freelance website customization across Shopify, WordPress, and Systeme.io,
+                  with strength in turning requirements into clear, usable web experiences.
                 </p>
               </div>
             </Reveal>
@@ -187,7 +196,7 @@ export default function HomePage() {
                   Project work
                 </p>
                 <p className="mt-2 text-sm font-semibold text-foreground">
-                  Budgeting apps, frontend team builds, and freelance Shopify delivery
+                  Budgeting apps, frontend team builds, and freelance website customization
                 </p>
                 <p className="mt-5 text-xs uppercase tracking-[0.2em] text-subtle">
                   Delivery
@@ -286,7 +295,7 @@ export default function HomePage() {
         <Section
           eyebrow="Contact"
           title="Open to software and web development roles"
-          description="If you need a dependable developer for frontend work, web apps, APIs, or Shopify support, I would be glad to connect."
+          description="If you need a dependable developer for frontend work, web apps, APIs, or website customization support, I would be glad to connect."
         >
           <ContactPanel />
         </Section>
